@@ -34,7 +34,6 @@ body {
     position: sticky;
     top: 0;
     padding: 0.8rem 1.5rem;
-    margin-bottom: 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -43,7 +42,7 @@ body {
         var(--clr-bg-header) 60%,
         var(--clr-bg-header-border)
     );
-    backdrop-filter: blur(6pt);
+    backdrop-filter: blur(4pt);
     border-bottom: 1pt solid var(--clr-bg-header-border);
     border-radius: 0 0 12pt 12pt;
     box-shadow: 1pt 1pt 20pt var(--clr-bg-main);
@@ -62,7 +61,7 @@ body {
         fill: var(--clr-fg-main);
     }
 
-    &.round-button {
+    &.circle-button {
         padding: 0.5rem;
         aspect-ratio: 1;
         border-radius: 50%;
@@ -82,4 +81,51 @@ body {
 .header__button:active {
     background-color: var(--clr-bg-button-active);
     box-shadow: 1pt 1pt 1pt var(--clr-bg-main);
+}
+
+.hero {
+    padding-block: 3rem 1rem;
+    padding-inline: 1.5rem;
+    min-height: 100vh;
+    background: center / cover no-repeat url("./assets/hero-bg-portrait.jpg");
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.hero__banner {
+    font-size: 2.0rem;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.hero__banner-sub-text {
+    font-size: 0.9rem;
+}
+
+.hero__button {
+    --buttons-radius: 5rem;
+    padding-block: 0.8rem;
+    padding-inline: 1.5rem;
+    border: none;
+    font-size: 1.0rem;
+    font-weight: 600;
+    background-color: var(--clr-bg-main);
+    color: var(--clr-fg-main);
+    transition:
+        background-color 300ms linear,
+        color 200ms linear;
+
+    &.round-button {
+        border-radius: var(--buttons-radius);
+    }
+
+    &.bg-less-button {
+        background-color: transparent;
+    }
+}
+
+.hero__button:hover {
+    color: var(--clr-bg-main);
+    background-color: var(--clr-fg-main);
 }
