@@ -15,12 +15,71 @@ button {
 }
 
 :root {
-    --clr-bg-main-dark: hsl(0 0% 10%);
-    --clr-fg-main-dark: hsl(0 0% 100%);
+    --clr-bg-main: hsl(0 0% 10%);
+    --clr-fg-main: hsl(0 0% 100%);
+    --clr-bg-button: hsl(0 0% 20%);
+    --clr-bg-button-active: hsl(0 0% 18% / 0.6);
+    --clr-bg-header: hsl(0 0% 10% / 0.8);
+    --clr-bg-header-border: hsl(0 0% 20% / 0.8);
+    --clr-accent: hsl(222 83.2% 63.1%);
 }
 
 body {
-    background-color: var(--clr-bg-main-dark);
-    color: var(--clr-fg-main-dark);
+    background-color: var(--clr-bg-main);
+    color: var(--clr-fg-main);
     font-family: "JetBrains Mono", monospace;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    padding: 0.8rem 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(
+        90deg,
+        var(--clr-bg-header) 60%,
+        var(--clr-bg-header-border)
+    );
+    backdrop-filter: blur(6pt);
+    border-bottom: 1pt solid var(--clr-bg-header-border);
+    border-radius: 0 0 12pt 12pt;
+    box-shadow: 1pt 1pt 20pt var(--clr-bg-main);
+}
+
+.header__buttons-wrapper {
+    display: flex;
+    gap: 1rem;
+}
+
+.header__button  {
+    border: none;
+    background-color: var(--clr-bg-button);
+
+    .button-icon {
+        fill: var(--clr-fg-main);
+    }
+
+    &.round-button {
+        padding: 0.5rem;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        display: flex;
+    }
+}
+
+.header__button:hover {
+    background-color: var(--clr-bg-header-border);
+    box-shadow: 1pt 1pt 5pt var(--clr-bg-main);
+
+    .button-icon {
+        fill: var(--clr-accent);
+    }
+}
+
+.header__button:active {
+    background-color: var(--clr-bg-button-active);
+    box-shadow: 1pt 1pt 1pt var(--clr-bg-main);
 }
