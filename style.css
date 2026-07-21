@@ -142,3 +142,12 @@ body {
     color: var(--clr-bg-main);
     background-color: var(--clr-fg-main);
 }
+
+.reveal-animated {
+    opacity: 0.0;
+    transition: opacity 1s ease-in-out;
+
+    &.-revealed {
+        opacity: 1.0;
+    }
+}
