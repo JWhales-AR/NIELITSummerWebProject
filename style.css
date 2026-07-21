@@ -97,9 +97,8 @@ body {
 }
 
 .hero {
-    padding-block: 5.0rem 1.0rem;
+    padding-block: max(30%, 5rem);
     padding-inline: 1.5rem;
-    min-height: 100vh;
     background: center / cover no-repeat url("./assets/hero-bg-portrait.jpg");
     display: flex;
     flex-direction: column;
