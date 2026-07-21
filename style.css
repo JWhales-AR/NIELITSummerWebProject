@@ -17,11 +17,7 @@ button {
 :root {
     --clr-bg-main: hsl(0 0% 10%);
     --clr-fg-main: hsl(0 0% 100%);
-    --clr-bg-button: hsl(0 0% 20%);
-    --clr-bg-button-active: hsl(0 0% 18% / 0.6);
-    --clr-bg-header: hsl(0 0% 10% / 0.8);
-    --clr-bg-header-border: hsl(0 0% 20% / 0.8);
-    --clr-accent: hsl(222 83.2% 63.1%);
+    --clr-accent: hsl(292 93.2% 83.1%);
 }
 
 body {
@@ -31,31 +27,48 @@ body {
 }
 
 .header {
-    position: sticky;
+    --clr-bg-header: hsl(0 0% 10% / 0.0);
+    --clr-bg-header-border: hsl(0 0% 20% / 0.0);
+    --clr-bg-button: hsl(0 0% 20% / 0.0);
+    --clr-bg-button-active: hsl(0 0% 18% / 0.0);
+    --transition-delay: 300ms;
+
+    position: fixed;
     top: 0;
-    padding: 0.8rem 1.5rem;
+    width: 100%;
+    padding: 0.5rem 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(
-        90deg,
-        var(--clr-bg-header) 60%,
-        var(--clr-bg-header-border)
-    );
-    backdrop-filter: blur(4pt);
+    background-color: var(--clr-bg-header);
     border-bottom: 1pt solid var(--clr-bg-header-border);
     border-radius: 0 0 12pt 12pt;
-    box-shadow: 1pt 1pt 20pt var(--clr-bg-main);
+    transition:
+        background-color var(--transition-delay) ease,
+        box-shadow var(--transition-delay) ease;
+
+    &.scrolled {
+        --clr-bg-header: hsl(0 0% 10% / 0.8);
+        --clr-bg-header-border: hsl(0 0% 20% / 0.8);
+        --clr-bg-button: hsl(0 0% 20%);
+        --clr-bg-button-active: hsl(0 0% 18% / 0.6);
+
+        backdrop-filter: blur(4pt);
+        box-shadow: 1pt 1pt 20pt var(--clr-bg-main);
+    }
 }
 
 .header__buttons-wrapper {
     display: flex;
-    gap: 1rem;
+    gap: 1.0rem;
 }
 
 .header__button  {
     border: none;
     background-color: var(--clr-bg-button);
+    transition:
+        background-color var(--transition-delay) ease,
+        box-shadow var(--transition-delay) ease;
 
     .button-icon {
         fill: var(--clr-fg-main);
@@ -69,28 +82,28 @@ body {
     }
 }
 
-.header__button:hover {
+.header.scrolled .header__button:hover {
     background-color: var(--clr-bg-header-border);
     box-shadow: 1pt 1pt 5pt var(--clr-bg-main);
-
-    .button-icon {
-        fill: var(--clr-accent);
-    }
 }
 
-.header__button:active {
+.header__button:hover .button-icon {
+    fill: var(--clr-accent);
+}
+
+.header.scrolled .header__button:active {
     background-color: var(--clr-bg-button-active);
     box-shadow: 1pt 1pt 1pt var(--clr-bg-main);
 }
 
 .hero {
-    padding-block: 3rem 1rem;
+    padding-block: 5.0rem 1.0rem;
     padding-inline: 1.5rem;
     min-height: 100vh;
     background: center / cover no-repeat url("./assets/hero-bg-portrait.jpg");
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 2.0rem;
 }
 
 .hero__banner {
@@ -104,7 +117,8 @@ body {
 }
 
 .hero__button {
-    --buttons-radius: 5rem;
+    --buttons-radius: 5.0rem;
+
     padding-block: 0.8rem;
     padding-inline: 1.5rem;
     border: none;
