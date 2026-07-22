@@ -98,6 +98,7 @@ body {
 
 .header__button:hover .button-icon {
     fill: var(--clr-accent);
+    transform: scale(1.2);
 }
 
 .header.scrolled .header__button:active {
@@ -375,6 +376,7 @@ body {
 
     &:hover {
         fill: var(--clr-accent);
+        transform: scale(1.2);
     }
 }
 
