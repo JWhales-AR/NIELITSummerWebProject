@@ -53,3 +53,10 @@ menuButton.addEventListener("click", () => {
     const menu = document.getElementById("header-menu");
     menu.classList.toggle("closed");
 })
+
+
+const cards = document.querySelectorAll(".card-stack--card");
+const onWideScreen = matchMedia("(min-width: 800px)");
+if (onWideScreen.matches) {
+    cards.forEach(card => card.classList.remove("reveal-animated"));
+}
