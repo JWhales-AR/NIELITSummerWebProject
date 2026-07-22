@@ -15,6 +15,7 @@ button {
 }
 
 :root {
+    --clr-bg-main-darker: hsl(0 0% 0%);
     --clr-bg-main: hsl(0 0% 10%);
     --clr-bg-main-lighter: hsl(0 0% 20%);
     --clr-fg-main: hsl(0 0% 100%);
@@ -190,9 +191,61 @@ body {
     background-color: var(--clr-fg-main);
 }
 
+.main-content-block {
+    padding-block: 0.5rem;
+    padding-inline: 1.5rem;
+
+    & h2 {
+        text-align: center;
+        font-style: italic;
+        font-size: 2.0rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .main-content--emphasis {
+        color: var(--clr-accent);
+        font-size: 2.2rem;
+    }
+}
+
+.main-content--list {
+    margin: 1.5rem 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.main-content--list-item {
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--clr-bg-main-lighter);
+    box-shadow: 2pt 2pt 20pt -5pt var(--clr-bg-main-darker);
+}
+
+.main-content--list-bullet {
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    width: 1rem;
+    aspect-ratio: 1;
+    background-color: var(--clr-bg-main);
+    border: 1pt solid var(--clr-accent);
+
+    &::after {
+        content: "";
+        width: 60%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background-color: var(--clr-accent);
+    }
+}
+
 .reveal-animated[data-extra-animations="true"] {
     opacity: 0.0;
-    transform: translate(1%, 1%);
+    transform: translate(var(--_translate-x, 1%), var(--_translate-y, 1%));
     transition:
         opacity 1s ease-in-out,
         transform var(--transition-slow) ease-in-out;
@@ -200,6 +253,11 @@ body {
     &.-revealed {
         opacity: 1.0;
         transform: none;
+    }
+
+    &.-slide-in {
+        --_translate-x: -50%;
+        --_translate-y: 0%;
     }
 }
 
@@ -223,7 +281,7 @@ body {
 }
 
 .infinite-scroller[data-extra-animations="true"] {
-    --_animation-duration: 10s;
+    --_animation-duration: 15s;
 
     overflow: hidden;
     mask: linear-gradient(
