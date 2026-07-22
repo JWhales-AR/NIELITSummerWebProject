@@ -214,3 +214,63 @@ body {
 .bg-less-button {
     background-color: transparent;
 }
+
+.footer {
+    width: 100%;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.footer__contact-item {
+    display: flex;
+    gap: 0.8rem;
+    font-weight: normal;
+    font-size: 1rem;
+
+    .button-icon {
+        width: 1.5rem;
+        fill: var(--clr-fg-main);
+    }
+}
+
+.footer__copyright {
+    font-size: 0.9rem;
+}
+
+.footer__contact,
+.footer__follow {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.footer__follow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer__contact-list,
+.footer__follow-link-list {
+    list-style: none;
+    & a {
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+.footer__follow-link-list {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer__follow-link .button-icon {
+    min-width: 1.5rem;
+    aspect-ratio: 1;
+    fill: var(--clr-fg-main);
+
+    &:hover {
+        fill: var(--clr-accent);
+    }
+}
