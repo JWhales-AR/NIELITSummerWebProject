@@ -31,22 +31,6 @@ body {
 }
 
 
-.circle-button {
-    padding: 0.5rem;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    display: flex;
-}
-
-.round-button {
-    border-radius: 5.0rem;
-}
-
-.bg-less-button {
-    background-color: transparent;
-}
-
-
 .header {
     --clr-bg-header: hsl(0 0% 10% / 0.0);
     --clr-bg-header-border: hsl(0 0% 20% / 0.0);
@@ -269,7 +253,7 @@ body {
 .scroller__item {
     background-color: var(--clr-bg-main-lighter);
     padding-block: 0.5rem;
-    padding-inline: 1.5rem;
+    padding-inline: 2rem;
     text-wrap: nowrap;
     flex-shrink: 0;
     box-shadow: 2pt 2pt 5pt var(--clr-bg-main);
@@ -334,4 +318,20 @@ body {
     &:hover {
         fill: var(--clr-accent);
     }
+}
+
+
+.round-button {
+    border-radius: 5.0rem;
+}
+
+.bg-less-button {
+    background-color: transparent;
+}
+
+.circle-button {
+    padding: 0.5rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: flex;
 }
