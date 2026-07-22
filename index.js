@@ -24,6 +24,10 @@ function revealOnScroll(entry) {
     }
 }
 
-document.querySelectorAll(".reveal-animated").forEach(node =>
-    observer.observe(node)
-);
+const prefersReducedAnimation = matchMedia("(prefers-reduced-motion: reduce)");
+document.querySelectorAll(".reveal-animated").forEach(node => {
+    if (!prefersReducedAnimation.match) {
+        node.setAttribute("data-extra-animations", true);
+        observer.observe(node);
+    }
+});

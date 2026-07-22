@@ -143,11 +143,15 @@ body {
     background-color: var(--clr-fg-main);
 }
 
-.reveal-animated {
+.reveal-animated[data-extra-animations="true"] {
     opacity: 0.0;
-    transition: opacity 1s ease-in-out;
+    transform: translate(1%, 1%);
+    transition:
+        opacity 1s ease-in-out,
+        transform 500ms ease-in-out;
 
     &.-revealed {
         opacity: 1.0;
+        transform: none;
     }
 }

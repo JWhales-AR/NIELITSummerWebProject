@@ -24,7 +24,10 @@
         </header>
         <main>
             <section id="hero" class="hero">
-                <div class="hero__banner-wrapper reveal-animated">
+                <div class="hero__banner-wrapper reveal-animated"
+                     data-extra-animations="true">
+                    <!-- `data-extra-animations` set manually since it already
+                         intersects the viewport by the time JS is run -->
                     <div class="hero__banner">
                         <p>Hero Banner Text</p>
                         <p>Proin gravida hendrerit lectus a molestie lorem ipsum dolor.</p>
