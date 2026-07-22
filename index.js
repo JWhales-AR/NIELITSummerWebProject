@@ -31,3 +31,10 @@ document.querySelectorAll(".reveal-animated").forEach(node => {
         observer.observe(node);
     }
 });
+
+
+const menuButton = document.getElementById("header-menu-button");
+menuButton.addEventListener("click", () => {
+    const menu = document.getElementById("header-menu");
+    menu.classList.toggle("closed");
+})
