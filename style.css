@@ -205,6 +205,12 @@ html {
     gap: 2.0rem;
 }
 
+@media(min-width: 600px) {
+    .hero {
+        background-image: url("./assets/hero-bg-landscape.jpg");
+    }
+}
+
 .hero__banner {
     font-size: 2.0rem;
     font-weight: 700;
