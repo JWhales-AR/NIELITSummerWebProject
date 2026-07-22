@@ -197,12 +197,16 @@ html {
 }
 
 .separator__item {
-    background-color: var(--clr-bg-main-lighter);
     padding-block: 0.5rem;
     padding-inline: 2rem;
     text-wrap: nowrap;
     flex-shrink: 0;
-    box-shadow: 2pt 2pt 5pt var(--clr-bg-main);
+
+    &::after {
+        margin-left: 50%;
+        content: "●";
+        color: var(--clr-accent);
+    }
 }
 
 .main-content-block {
