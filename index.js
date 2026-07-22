@@ -31,6 +31,21 @@ document.querySelectorAll(".reveal-animated").forEach(node => {
         observer.observe(node);
     }
 });
+document.querySelectorAll(".infinite-scroller").forEach(node => {
+    if (!prefersReducedAnimation.match) {
+        infiniteScrollAnimation(node);
+    }
+})
+
+function infiniteScrollAnimation(scroller) {
+    scroller.setAttribute("data-extra-animations", true);
+    let scrollerInner = scroller.querySelector(".scroller__inner");
+    Array.from(scrollerInner.children).forEach(child => {
+        let duplicated = child.cloneNode(true);
+        duplicated.setAttribute("aria-hidden", true);
+        scrollerInner.appendChild(duplicated);
+    });
+}
 
 
 const menuButton = document.getElementById("header-menu-button");

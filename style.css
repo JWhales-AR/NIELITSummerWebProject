@@ -16,6 +16,7 @@ button {
 
 :root {
     --clr-bg-main: hsl(0 0% 10%);
+    --clr-bg-main-lighter: hsl(0 0% 20%);
     --clr-fg-main: hsl(0 0% 100%);
     --clr-accent: hsl(292 93.2% 83.1%);
     --transition-fast: 200ms;
@@ -28,6 +29,23 @@ body {
     color: var(--clr-fg-main);
     font-family: "JetBrains Mono", monospace;
 }
+
+
+.circle-button {
+    padding: 0.5rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: flex;
+}
+
+.round-button {
+    border-radius: 5.0rem;
+}
+
+.bg-less-button {
+    background-color: transparent;
+}
+
 
 .header {
     --clr-bg-header: hsl(0 0% 10% / 0.0);
@@ -150,6 +168,7 @@ body {
     }
 }
 
+
 .hero {
     padding-block: max(30%, 5rem);
     padding-inline: 1.5rem;
@@ -200,20 +219,62 @@ body {
     }
 }
 
-.circle-button {
-    padding: 0.5rem;
-    aspect-ratio: 1;
-    border-radius: 50%;
+.scroller-wrapper {
     display: flex;
+    justify-content: center;
 }
 
-.round-button {
-    border-radius: 5.0rem;
+.infinite-scroller {
+    padding: 0.5rem;
+    max-width: 700px;
+
+    .scroller__inner {
+        --_item-gap: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--_item-gap);
+        width: fit-content;
+        list-style: none;
+    }
 }
 
-.bg-less-button {
-    background-color: transparent;
+.infinite-scroller[data-extra-animations="true"] {
+    --_animation-duration: 10s;
+
+    overflow: hidden;
+    mask: linear-gradient(
+        90deg,
+        transparent,
+        white 20%, white 80%,
+        transparent
+    );
+
+    &.reverse {
+        --_animation-direction: reverse;
+    }
+
+    .scroller__inner {
+        flex-wrap: nowrap;
+        animation: infinite-scroll var(--_animation-duration, 10s)
+                   var(--_animation-direction, forwards) infinite linear;
+    }
 }
+
+@keyframes infinite-scroll {
+    to {
+        transform: translateX(calc(-50% - var(--_item-gap) / 2));
+    }
+}
+
+.scroller__item {
+    background-color: var(--clr-bg-main-lighter);
+    padding-block: 0.5rem;
+    padding-inline: 1.5rem;
+    text-wrap: nowrap;
+    flex-shrink: 0;
+    box-shadow: 2pt 2pt 5pt var(--clr-bg-main);
+}
+
 
 .footer {
     width: 100%;
