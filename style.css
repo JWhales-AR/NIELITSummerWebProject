@@ -18,6 +18,9 @@ button {
     --clr-bg-main: hsl(0 0% 10%);
     --clr-fg-main: hsl(0 0% 100%);
     --clr-accent: hsl(292 93.2% 83.1%);
+    --transition-fast: 200ms;
+    --transition-slow: 500ms;
+    --transition-default: 300ms;
 }
 
 body {
@@ -33,7 +36,6 @@ body {
     --clr-bg-button-active: hsl(0 0% 18% / 0.0);
     --header-shadow-basic: 1pt 1pt 20pt var(--clr-bg-main);
     --header-border-radius: 0 0 12pt 12pt;
-    --transition-delay: 300ms;
 
     position: fixed;
     z-index: 2;
@@ -47,9 +49,9 @@ body {
     border-bottom: 1pt solid var(--clr-bg-header-border);
     border-radius: var(--header-border-radius);
     transition:
-        border-radius var(--transition-delay) ease,
-        background-color var(--transition-delay) ease,
-        box-shadow var(--transition-delay) ease;
+        border-radius var(--transition-default) ease,
+        background-color var(--transition-default) ease,
+        box-shadow var(--transition-default) ease;
 
     &:not(:has(.header__menu.closed)),
     &.scrolled {
@@ -77,8 +79,8 @@ body {
     border: none;
     background-color: var(--clr-bg-button);
     transition:
-        background-color var(--transition-delay) ease,
-        box-shadow var(--transition-delay) ease;
+        background-color var(--transition-default) ease,
+        box-shadow var(--transition-default) ease;
 
     .button-icon {
         fill: var(--clr-fg-main);
@@ -106,8 +108,8 @@ body {
     top: 100%;
     left: 0;
     transition:
-        transform var(--transition-delay) linear,
-        background-color var(--transition-delay) ease;
+        transform var(--transition-default) linear,
+        background-color var(--transition-default) ease;
     transform: translateY(0);
     width: 100%;
 
@@ -149,7 +151,6 @@ body {
 }
 
 .hero {
-    height: 200vh;
     padding-block: max(30%, 5rem);
     padding-inline: 1.5rem;
     background: center / cover no-repeat url("./assets/hero-bg-portrait.jpg");
@@ -177,12 +178,8 @@ body {
     background-color: var(--clr-bg-main);
     color: var(--clr-fg-main);
     transition:
-        background-color 300ms linear,
-        color 200ms linear;
-
-    &.bg-less-button {
-        background-color: transparent;
-    }
+        background-color var(--transition-default) linear,
+        color var(--transition-fast) linear;
 }
 
 .hero__button:hover {
@@ -195,7 +192,7 @@ body {
     transform: translate(1%, 1%);
     transition:
         opacity 1s ease-in-out,
-        transform 500ms ease-in-out;
+        transform var(--transition-slow) ease-in-out;
 
     &.-revealed {
         opacity: 1.0;
@@ -212,4 +209,8 @@ body {
 
 .round-button {
     border-radius: 5.0rem;
+}
+
+.bg-less-button {
+    background-color: transparent;
 }
