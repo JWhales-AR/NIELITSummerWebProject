@@ -49,6 +49,7 @@ function infiniteScrollAnimation(scroller) {
 
 const menuButton = document.getElementById("header-menu-button");
 menuButton.addEventListener("click", () => {
+    menuButton.querySelector(".hamburger-icon").classList.toggle("cross");
     const menu = document.getElementById("header-menu");
     menu.classList.toggle("closed");
 })
