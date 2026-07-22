@@ -1,10 +1,9 @@
+const header = document.getElementById("header");
 window.addEventListener("scroll", () => {
     headerOpacityOnScroll();
 })
 
 function headerOpacityOnScroll() {
-    const header = document.getElementById("header");
-
     if (window.scrollY > 20) {
         header.classList.add("scrolled");
     } else {
@@ -26,13 +25,13 @@ function revealOnScroll(entry) {
 
 const prefersReducedAnimation = matchMedia("(prefers-reduced-motion: reduce)");
 document.querySelectorAll(".reveal-animated").forEach(node => {
-    if (!prefersReducedAnimation.match) {
+    if (!prefersReducedAnimation.matches) {
         node.setAttribute("data-extra-animations", true);
         observer.observe(node);
     }
 });
 document.querySelectorAll(".infinite-scroller").forEach(node => {
-    if (!prefersReducedAnimation.match) {
+    if (!prefersReducedAnimation.matches) {
         infiniteScrollAnimation(node);
     }
 })

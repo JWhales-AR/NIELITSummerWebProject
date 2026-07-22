@@ -192,6 +192,15 @@ body {
     background-color: var(--clr-fg-main);
 }
 
+.separator__item {
+    background-color: var(--clr-bg-main-lighter);
+    padding-block: 0.5rem;
+    padding-inline: 2rem;
+    text-wrap: nowrap;
+    flex-shrink: 0;
+    box-shadow: 2pt 2pt 5pt var(--clr-bg-main);
+}
+
 .main-content-block {
     padding-block: 0.5rem;
     padding-inline: 1.5rem;
@@ -201,6 +210,7 @@ body {
         font-style: italic;
         font-size: 2.0rem;
         margin-bottom: 0.5rem;
+        text-transform: uppercase;
     }
 
     .main-content--emphasis {
@@ -241,6 +251,41 @@ body {
         aspect-ratio: 1;
         border-radius: 50%;
         background-color: var(--clr-accent);
+    }
+}
+
+.testimonial__item {
+    display: grid;
+    place-items: center;
+    grid-template-areas:
+        "quote quote"
+        ".     author";
+    padding-block: 1.5rem;
+    padding-inline: 2.5rem;
+    min-height: 8rem;
+    text-wrap: nowrap; /* Here's hoping I don't make the text _too_ long */
+    background-color: var(--clr-bg-main-lighter);
+    border-radius: 6pt;
+    box-shadow: 1pt 1pt 10pt -2pt var(--clr-bg-main-darker);
+}
+
+.testimonial__quote {
+    grid-area: quote;
+
+    &::before {
+        content: "“";
+    }
+    &::after {
+        content: "”";
+    }
+}
+
+.testimonial__author {
+    color: var(--clr-accent);
+    grid-area: author;
+
+    &::before {
+        content: "⸺ ";
     }
 }
 
@@ -292,7 +337,7 @@ body {
         transparent
     );
 
-    &.reverse {
+    &.-reverse {
         --_animation-direction: reverse;
     }
 
@@ -307,15 +352,6 @@ body {
     to {
         transform: translateX(calc(-50% - var(--_item-gap) / 2));
     }
-}
-
-.scroller__item {
-    background-color: var(--clr-bg-main-lighter);
-    padding-block: 0.5rem;
-    padding-inline: 2rem;
-    text-wrap: nowrap;
-    flex-shrink: 0;
-    box-shadow: 2pt 2pt 5pt var(--clr-bg-main);
 }
 
 
