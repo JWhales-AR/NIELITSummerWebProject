@@ -77,6 +77,10 @@ html {
     }
 }
 
+.header__website-name {
+    text-wrap: nowrap;
+}
+
 .header__buttons-wrapper {
     display: flex;
     gap: 1.0rem;
@@ -192,6 +196,36 @@ html {
     & a {
         text-decoration: none;
         color: inherit;
+    }
+}
+
+@media(min-width: 850px) {
+
+    .header__menu {
+        position: static;
+
+        &.closed {
+            transform: none;
+        }
+
+        .header__menu--inner {
+            flex-direction: row;
+        }
+    }
+
+    .header__menu--item {
+        padding: 0.5rem;
+        width: 10rem;
+        background-color: transparent;
+        border-color: transparent;
+
+        &:last-child {
+            box-shadow: none;
+        }
+    }
+
+    .header__button.-menu-button {
+        display: none;
     }
 }
 
