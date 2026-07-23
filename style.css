@@ -197,28 +197,46 @@ html {
 
 
 .hero {
+    background: center / cover no-repeat url("./assets/hero-bg-portrait.jpg");
+}
+
+.hero__inner {
     padding-block: max(30%, 5rem);
     padding-inline: 1.5rem;
-    background: center / cover no-repeat url("./assets/hero-bg-portrait.jpg");
+    max-width: 700px;
     display: flex;
     flex-direction: column;
     gap: 2.0rem;
-}
-
-@media(min-width: 600px) {
-    .hero {
-        background-image: url("./assets/hero-bg-landscape.jpg");
-    }
 }
 
 .hero__banner {
     font-size: 2.0rem;
     font-weight: 700;
     text-transform: capitalize;
+    margin-bottom: 0.5rem;
 }
 
 .hero__banner-sub-text {
     font-size: 0.9rem;
+}
+
+@media(min-width: 600px) {
+    .hero {
+        background-image: url("./assets/hero-bg-landscape.jpg");
+    }
+
+    .hero__banner {
+        margin-bottom: 1rem;
+    }
+}
+
+@media(min-width: 900px) {
+    .hero__inner {
+        margin-left: auto;
+        padding-block: 5rem;
+        min-height: 100vh;
+        justify-content: center;
+    }
 }
 
 .hero__button {

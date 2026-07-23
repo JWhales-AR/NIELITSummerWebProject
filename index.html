@@ -45,24 +45,26 @@
         </header>
         <main>
             <section id="hero" class="hero">
-                <div class="hero__banner-wrapper reveal-animated"
-                     data-extra-animations="true">
-                    <!-- `data-extra-animations` set manually since it already
-                         intersects the viewport by the time JS is run -->
-                    <div class="hero__banner">
-                        <p>Hero Banner Text</p>
-                        <p>Proin gravida hendrerit lectus a molestie lorem ipsum dolor.</p>
+                <div class="hero__inner">
+                    <div class="hero__banner-wrapper reveal-animated"
+                         data-extra-animations="true">
+                        <!-- `data-extra-animations` set manually since it already
+                             intersects the viewport by the time JS is run -->
+                        <div class="hero__banner">
+                            <p>Hero Banner Text</p>
+                            <p>Proin gravida hendrerit lectus a molestie lorem ipsum dolor.</p>
+                        </div>
+                        <div class="hero__banner-sub-text">
+                            <p>
+                                Amet, consectetur adipiscing elit pellentesque habitant morbi tristique senectus et
+                                netus et malesuada fames ac turpis egestas integer eget aliquet.
+                            </p>
+                        </div>
                     </div>
-                    <div class="hero__banner-sub-text">
-                        <p>
-                            Amet, consectetur adipiscing elit pellentesque habitant morbi tristique senectus et
-                            netus et malesuada fames ac turpis egestas integer eget aliquet.
-                        </p>
+                    <div class="hero__jump-buttons-wrapper">
+                        <button id="to-main-button" class="hero__button round-button">Go To Main</button>
+                        <button id="to-about-button" class="hero__button round-button bg-less-button">About Us</button>
                     </div>
-                </div>
-                <div class="hero__jump-buttons-wrapper">
-                    <button id="to-main-button" class="hero__button round-button">Go To Main</button>
-                    <button id="to-about-button" class="hero__button round-button bg-less-button">About Us</button>
                 </div>
             </section>
             <div class="scroller-wrapper">
