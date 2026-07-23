@@ -57,8 +57,7 @@ html {
     border-radius: var(--header-border-radius);
     transition:
         border-radius var(--transition-default) ease,
-        background-color var(--transition-default) ease,
-        box-shadow var(--transition-default) ease;
+        background-color var(--transition-default) ease;
 
     &:not(:has(.header__menu.closed)),
     &.scrolled {
@@ -89,9 +88,7 @@ html {
 .header__button  {
     border: none;
     background-color: var(--clr-bg-button);
-    transition:
-        background-color var(--transition-default) ease,
-        box-shadow var(--transition-default) ease;
+    transition: background-color var(--transition-default) ease;
 
     .button-icon {
         fill: var(--clr-fg-main);
@@ -236,6 +233,8 @@ html {
 
 .hero {
     background: center / cover no-repeat url("./assets/hero-bg-portrait.jpg");
+    max-width: 1920px;
+    margin: auto;
 }
 
 .hero__inner {
@@ -272,7 +271,7 @@ html {
     .hero__inner {
         margin-left: auto;
         padding-block: 5rem;
-        min-height: 100vh;
+        min-height: min(100vh, 1080px);
         justify-content: center;
     }
 }
@@ -339,6 +338,12 @@ html {
     flex-direction: column;
     align-items: center;
     gap: 0.8rem;
+}
+
+@media (min-width: 900px) {
+    .main-content--list {
+        align-items: flex-start;
+    }
 }
 
 .main-content--list-item {
