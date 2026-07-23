@@ -1,7 +1,7 @@
 const header = document.getElementById("header");
 window.addEventListener("scroll", () => {
     headerOpacityOnScroll();
-})
+}, { passive: true });
 
 function headerOpacityOnScroll() {
     if (window.scrollY > 20) {

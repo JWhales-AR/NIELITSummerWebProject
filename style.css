@@ -197,6 +197,10 @@ html {
         text-decoration: none;
         color: inherit;
     }
+
+    & a:hover {
+        color: var(--clr-accent);
+    }
 }
 
 @media(min-width: 850px) {
