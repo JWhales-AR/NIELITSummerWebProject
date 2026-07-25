@@ -3,6 +3,7 @@ const goToTopButton = document.getElementById("go-to-top-button");
 
 window.addEventListener("scroll", () => {
     fixHeaderAndGoToTopButton();
+    progressBarUpdate();
 }, { passive: true });
 
 goToTopButton.addEventListener("click", () => window.scrollTo(0, 0));
@@ -15,6 +16,17 @@ function fixHeaderAndGoToTopButton() {
         header.classList.remove("scrolled");
         goToTopButton.classList.add("hidden");
     }
+}
+
+const progressBar = document.getElementById("progress-bar");
+const progressBarFill = progressBar.querySelector(".progress-bar--fill");
+function progressBarUpdate() {
+    let max =
+        document.documentElement.scrollHeight
+        - document.documentElement.clientHeight;
+    let current = window.scrollY;
+    let fillPercent = (current / max) * 100;
+    progressBarFill.style.width = `${fillPercent}%`;
 }
 
 const observer = new IntersectionObserver(entries => {
