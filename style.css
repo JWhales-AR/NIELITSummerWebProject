@@ -78,6 +78,8 @@ html {
 
 .header__website-name {
     text-wrap: nowrap;
+    font-weight: 800;
+    font-size: 1.1rem;
 }
 
 .header__buttons-wrapper {
