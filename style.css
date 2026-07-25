@@ -231,6 +231,41 @@ html {
 }
 
 
+.go-to-top-container {
+    z-index: 999;
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+}
+
+.go-to-top-button {
+    width: 3rem;
+    aspect-ratio: 1;
+    padding: 0.5rem;
+    border: none;
+    background-color: var(--clr-bg-main-lighter);
+    color: var(--clr-fg-main);
+    font-size: 1.5rem;
+    box-shadow: 2pt 2pt 15pt -3pt var(--clr-bg-main-darker);
+    opacity: 1.0;
+    transition:
+        visibility var(--transition-fast),
+        opacity var(--transition-fast);
+
+    &.hidden {
+        visibility: hidden;
+        opacity: 0.0;
+    }
+
+    &:hover {
+        color: var(--clr-accent);
+    }
+
+    &:active {
+        background-color: var(--clr-bg-main);
+    }
+}
+
 .hero {
     background: center / cover no-repeat url("./assets/hero-bg-portrait.jpg");
     max-width: 1920px;
@@ -597,5 +632,6 @@ html {
     padding: 0.5rem;
     aspect-ratio: 1;
     border-radius: 50%;
-    display: flex;
+    display: grid;
+    place-items: center;
 }

@@ -1,13 +1,19 @@
 const header = document.getElementById("header");
+const goToTopButton = document.getElementById("go-to-top-button");
+
 window.addEventListener("scroll", () => {
-    headerOpacityOnScroll();
+    fixHeaderAndGoToTopButton();
 }, { passive: true });
 
-function headerOpacityOnScroll() {
+goToTopButton.addEventListener("click", () => window.scrollTo(0, 0));
+
+function fixHeaderAndGoToTopButton() {
     if (window.scrollY > 20) {
         header.classList.add("scrolled");
+        goToTopButton.classList.remove("hidden");
     } else {
         header.classList.remove("scrolled");
+        goToTopButton.classList.add("hidden");
     }
 }
 
