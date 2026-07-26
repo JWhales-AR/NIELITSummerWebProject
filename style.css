@@ -26,10 +26,20 @@ button {
     --transition-default: 300ms;
 }
 
+:root.light {
+    --clr-bg-main-darker: hsl(0 0% 100%);
+    --clr-bg-main: hsl(0 0% 90%);
+    --clr-bg-main-lighter: hsl(0 0% 75%);
+    --clr-bg-main-lighter-lighter: hsl(0 0% 70% / 0.4);
+    --clr-fg-main: hsl(0 0% 0%);
+    --clr-accent: hsl(216 66.1% 51.6%);
+}
+
 body {
     background-color: var(--clr-bg-main);
     color: var(--clr-fg-main);
     font-family: "JetBrains Mono", monospace;
+    transition: background-color var(--transition-default);
 }
 
 html {
@@ -74,6 +84,23 @@ html {
     &:not(:has(.header__menu.closed)) {
         border-radius: 0;
         box-shadow: none;
+    }
+}
+
+:root.light {
+    .header {
+        --clr-bg-header: hsl(0 0% 90% / 0.0);
+        --clr-bg-header-border: hsl(0 0% 40% / 0.0);
+        --clr-bg-button: hsl(0 0% 75% / 0.0);
+        --clr-bg-button-active: hsl(0 0% 72% / 0.0);
+    }
+
+    .header:not(:has(.header__menu.closed)),
+    .header.scrolled {
+        --clr-bg-header: hsl(0 0% 90% / 0.8);
+        --clr-bg-header-border: hsl(0 0% 80% / 0.8);
+        --clr-bg-button: hsl(0 0% 80% / 0.6);
+        --clr-bg-button-active: hsl(0 0% 72% / 0.6);
     }
 }
 
@@ -310,6 +337,10 @@ html {
     margin: auto;
 }
 
+:root.light .hero {
+    background: center / cover no-repeat url("./assets/hero-bg-portrait-light.jpg");
+}
+
 .hero__inner {
     padding-block: max(30%, 5rem);
     padding-inline: 1.5rem;
@@ -333,6 +364,10 @@ html {
 @media(min-width: 600px) {
     .hero {
         background-image: url("./assets/hero-bg-landscape.jpg");
+    }
+
+    :root.light .hero {
+        background-image: url("./assets/hero-bg-light.jpg");
     }
 
     .hero__banner {
