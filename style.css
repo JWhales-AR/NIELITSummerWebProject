@@ -211,7 +211,7 @@ html {
         color: inherit;
     }
 
-    & a:hover {
+    &:hover a {
         color: var(--clr-accent);
     }
 }
@@ -226,19 +226,40 @@ html {
         }
 
         .header__menu--inner {
+            margin: auto;
+            max-width: 600px;
             flex-direction: row;
+            justify-content: space-between;
         }
     }
 
     .header__menu--item {
-        padding: 0.5rem;
-        width: 10rem;
+        position: relative;
+        padding-block: 0.5rem;
+        padding-inline: 0;
+        width: fit-content;
         background-color: transparent;
         border-color: transparent;
 
         &:last-child {
             box-shadow: none;
         }
+    }
+
+    .header__menu--item::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 0.2rem;
+        background-color: var(--clr-accent);
+        transform: scaleX(0.0);
+        transform-origin: bottom left;
+        transition: transform var(--transition-default);
+    }
+
+    .header__menu--item:hover::after {
+        transform: scaleX(1.0);
     }
 
     .header__button.-menu-button {
