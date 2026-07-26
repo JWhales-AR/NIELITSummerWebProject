@@ -1,10 +1,14 @@
 const header = document.getElementById("header");
 const goToTopButton = document.getElementById("go-to-top-button");
 
-window.addEventListener("scroll", () => {
-    fixHeaderAndGoToTopButton();
-    progressBarUpdate();
-}, { passive: true });
+function windowOnScroll() {
+    requestAnimationFrame(() => {
+        fixHeaderAndGoToTopButton();
+        progressBarUpdate();
+    })
+}
+
+window.addEventListener("scroll", windowOnScroll, { passive: true });
 
 goToTopButton.addEventListener("click", () => window.scrollTo(0, 0));
 
