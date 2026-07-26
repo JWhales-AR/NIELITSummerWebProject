@@ -457,21 +457,73 @@ html {
 }
 
 .card-stack--card {
+    --_border-radius: 6pt;
+
     position: sticky;
     top: 90px;
     width: 80%;
-    aspect-ratio: 0.8;
     background-color: var(--clr-bg-main-lighter);
-    border-radius: 6pt;
+    border-radius: var(--_border-radius);
     box-shadow: 1pt 1pt 10pt -5pt var(--clr-bg-main-darker);
     border: 1pt solid var(--clr-bg-main-lighter-lighter);
+    transition: transform var(--transition-slow);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    &:hover img {
+        transform: scale(1.06);
+    }
+}
+
+.card-stack--img-container {
+    height: 45%;
+    width: 100%;
+    overflow: hidden;
+    border-radius: var(--_border-radius) var(--_border-radius) 0 0;
+
+    & img {
+        height: 100%;
+        width: 100%;
+        border-radius: var(--_border-radius) var(--_border-radius) 0 0;
+        transition: transform var(--transition-slow);
+        object-fit: cover;
+    }
+}
+
+.card-stack--content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    justify-content: center;
+
+    & p:first-child {
+        font-weight: 800;
+        font-size: 1.1rem;
+    }
 }
 
 @media (min-width: 600px) {
     .card-stack--card {
         aspect-ratio: auto;
-        min-height: 15rem;
+        height: 15rem;
         width: 100%;
+        flex-direction: row;
+    }
+
+    .card-stack--img-container {
+        height: 100%;
+        width: 40%;
+        border-radius: var(--_border-radius) 0 0 var(--_border-radius);
+
+        & img {
+            border-radius: var(--_border-radius) 0 0 var(--_border-radius);
+        }
+    }
+
+    .card-stack--content-wrapper {
+        max-width: 50%;
     }
 }
 
