@@ -47,6 +47,8 @@ html {
 }
 
 
+/* Header, Menu and Progress Bar */
+
 .header {
     --clr-bg-header: hsl(0 0% 10% / 0.0);
     --clr-bg-header-border: hsl(0 0% 20% / 0.0);
@@ -112,7 +114,7 @@ html {
     height: 0.2rem;
 
     .progress-bar--fill {
-        background-color: pink;
+        background-color: var(--clr-accent);
         width: 0%;
         height: 100%;
     }
@@ -330,6 +332,9 @@ html {
         background-color: var(--clr-bg-main);
     }
 }
+
+
+/* Main section: Hero, Showcase, Testimonials */
 
 .hero {
     background: center / cover no-repeat url("./assets/hero-bg-portrait.jpg");
@@ -670,6 +675,8 @@ html {
 }
 
 
+/* Footer Content */
+
 .footer {
     margin-inline: auto;
     max-width: 900px;
@@ -749,6 +756,8 @@ html {
     }
 }
 
+
+/* Utility Classes */
 
 .round-button {
     border-radius: 5.0rem;
