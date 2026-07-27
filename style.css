@@ -602,6 +602,15 @@ html {
     }
 }
 
+.testimonial__stats {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+    min-height: 2rem;
+}
+
 .reveal-animated[data-extra-animations="true"] {
     --_transition-delay: var(--transition-slow);
 
@@ -794,5 +803,26 @@ html {
         box-shadow: var(--_box-shadow);
         transform: none;
         transition: transform var(--transition-fast) ease-in-out;
+    }
+}
+
+.typewriter-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.typewriter-cursor {
+    width: 0.2rem;
+    height: 1.2rem;
+    background-color: var(--clr-accent);
+    animation: cursor-blink var(--transition-slow) infinite;
+}
+
+@keyframes cursor-blink {
+    from {
+        opacity: 0.0;
+    } to {
+        opacity: 1.0;
     }
 }

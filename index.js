@@ -96,3 +96,30 @@ const onWideScreen = matchMedia("(min-width: 800px)");
 if (onWideScreen.matches) {
     cards.forEach(card => card.classList.remove("reveal-animated"));
 }
+
+
+const typewriterTextItems = document.querySelectorAll(".typewriter-text");
+requestAnimationFrame(() => typewriterTextItems.forEach(typewriterAnimation));
+
+async function typewriterAnimation(textItem) {
+    const textList = JSON.parse(textItem.dataset.textList);
+    while (true) {
+        for (const text of textList) {
+            const n = text.length;
+            for (const c of text) {
+                textItem.textContent += c;
+                await sleep(100);
+            }
+            await sleep(1 * 1000);
+            for (let i = n - 1; i >= 0; --i) {
+                textItem.textContent = text.slice(0, i);
+                await sleep(50);
+            }
+        }
+        await sleep(100);
+    }
+}
+
+function sleep(ms) {
+    return new Promise(r => setTimeout(r, ms));
+}
