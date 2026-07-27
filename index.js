@@ -3,7 +3,7 @@ const svgThemeToLight = `<svg class="button-icon" xmlns="http://www.w3.org/2000/
 
 const header = document.getElementById("header");
 const goToTopButton = document.getElementById("go-to-top-button");
-const themeToggleBottom = document.getElementById("header-theme-button");
+const themeToggleButton = document.getElementById("header-theme-button");
 
 window.addEventListener("scroll", windowOnScroll, { passive: true });
 function windowOnScroll() {
@@ -35,17 +35,25 @@ function progressBarUpdate() {
     progressBarFill.style.width = `${fillPercent}%`;
 }
 
-themeToggleBottom.addEventListener("click", toggleThemeButton);
-function toggleThemeButton() {
+themeToggleButton.addEventListener("click", toggleTheme);
+function toggleTheme() {
     const rootElement = document.documentElement;
     if (rootElement.classList.contains("light")) {
-        themeToggleBottom.innerHTML = svgThemeToLight;
+        themeToggleButton.innerHTML = svgThemeToLight;
         rootElement.classList.remove("light");
     } else {
-        themeToggleBottom.innerHTML = svgThemeToDark;
+        themeToggleButton.innerHTML = svgThemeToDark;
         rootElement.classList.add("light");
     }
 }
+
+const menuButton = document.getElementById("header-menu-button");
+menuButton.addEventListener("click", () => {
+    menuButton.querySelector(".hamburger-icon").classList.toggle("cross");
+    const menu = document.getElementById("header-menu");
+    menu.classList.toggle("closed");
+})
+
 
 const observer = new IntersectionObserver(entries => {
     entries.forEach(revealOnScroll);
@@ -81,14 +89,6 @@ function infiniteScrollAnimation(scroller) {
         scrollerInner.appendChild(duplicated);
     });
 }
-
-
-const menuButton = document.getElementById("header-menu-button");
-menuButton.addEventListener("click", () => {
-    menuButton.querySelector(".hamburger-icon").classList.toggle("cross");
-    const menu = document.getElementById("header-menu");
-    menu.classList.toggle("closed");
-})
 
 
 const cards = document.querySelectorAll(".card-stack--card");
