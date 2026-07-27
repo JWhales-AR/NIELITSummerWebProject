@@ -765,3 +765,25 @@ html {
     display: grid;
     place-items: center;
 }
+
+.raise-on-hover-button {
+    --_box-shadow: 1pt 1pt 10pt -5pt var(--clr-bg-main-darker);
+    --_box-shadow-raised: 1pt 3pt 10pt -4pt var(--clr-bg-main-darker);
+
+    transition: transform var(--transition-default) ease-in-out;
+
+    &:not(.bg-less-button) {
+        box-shadow: var(--_box-shadow);
+    }
+
+    &:hover {
+        transform: translateY(-10%);
+        box-shadow: var(--_box-shadow-raised);
+    }
+
+    &:active {
+        box-shadow: var(--_box-shadow);
+        transform: none;
+        transition: transform var(--transition-fast) ease-in-out;
+    }
+}
